@@ -6,9 +6,7 @@ export class CookiesMiddlware {
                 return;
             }
             if (ctx.cookies.length > 0) {
-                if (ctx.cookies.length > 0) {
-                    res.setHeader("Set-Cookie", ctx.cookies);
-                }
+                res.setHeader("Set-Cookie", ctx.cookies);
             }
         };
     }
