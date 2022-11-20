@@ -1,4 +1,4 @@
-export class CookiesMiddlware {
+export class CookiesMiddleware {
     use(next) {
         return async function cookiesMiddleware(req, res, ctx) {
             await next(req, res, ctx);

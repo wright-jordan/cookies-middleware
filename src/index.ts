@@ -6,7 +6,7 @@ declare module "ts-http" {
   }
 }
 
-export class CookiesMiddlware implements tsHTTP.Middleware {
+export class CookiesMiddleware implements tsHTTP.Middleware {
   use(next: tsHTTP.Handler): tsHTTP.Handler {
     return async function cookiesMiddleware(req, res, ctx) {
       await next(req, res, ctx);
