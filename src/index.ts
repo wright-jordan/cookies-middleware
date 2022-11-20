@@ -6,16 +6,18 @@ declare module "ts-http" {
   }
 }
 
-export const useCookies: tsHTTP.Middleware = function useCookies(next) {
-  return async function cookies(req, res, ctx) {
-    await next(req, res, ctx);
-    if (res.headersSent) {
-      return;
-    }
-    if (ctx.cookies.length > 0) {
-      if (ctx.cookies.length > 0) {
-        res.setHeader("Set-Cookie", ctx.cookies);
+export class CookiesMiddlware implements tsHTTP.Middleware {
+  use(next: tsHTTP.Handler): tsHTTP.Handler {
+    return async function cookiesMiddleware(req, res, ctx) {
+      await next(req, res, ctx);
+      if (res.headersSent) {
+        return;
       }
-    }
-  };
-};
+      if (ctx.cookies.length > 0) {
+        if (ctx.cookies.length > 0) {
+          res.setHeader("Set-Cookie", ctx.cookies);
+        }
+      }
+    };
+  }
+}
