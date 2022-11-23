@@ -9,7 +9,7 @@ function use(next) {
         }
     };
 }
-export function CookiesMiddleware() {
+export function Cookies() {
     return {
         use,
     };

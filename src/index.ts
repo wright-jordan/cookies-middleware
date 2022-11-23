@@ -18,7 +18,7 @@ function use(next: tsHTTP.Handler): tsHTTP.Handler {
   };
 }
 
-export function CookiesMiddleware(): tsHTTP.Middleware {
+export function Cookies(): tsHTTP.Middleware {
   return {
     use,
   };
