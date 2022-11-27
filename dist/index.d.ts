@@ -4,4 +4,8 @@ declare module "ts-http" {
         cookies: string[];
     }
 }
-export declare function Cookies(): tsHTTP.Middleware;
+declare function use(next: tsHTTP.Handler): tsHTTP.Handler;
+export declare function Cookies(): {
+    use: typeof use;
+};
+export {};
